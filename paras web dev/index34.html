@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Happy Birthday Nisika!</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        margin: 0;
+        font-family: "Poppins", sans-serif;
+        background: #fff5f8;
+        color: #4a4a4a;
+        overflow-x: hidden;
+      }
+
+      /* Hero Section */
+      .hero {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        background: linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%);
+      }
+      h1 {
+        font-family: "Dancing Script", cursive;
+        font-size: clamp(3rem, 10vw, 5rem);
+        color: #fff;
+        text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+        margin: 0;
+      }
+      .subtext {
+        font-size: 1.5rem;
+        color: #fff;
+        margin-top: 10px;
+        padding: 0 20px;
+      }
+
+      /* Surprise Button */
+      .btn {
+        margin-top: 30px;
+        padding: 15px 40px;
+        background: #ff758c;
+        color: white;
+        border-radius: 50px;
+        font-weight: bold;
+        font-size: 1.2rem;
+        transition: 0.3s;
+        cursor: pointer;
+        border: none;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      }
+      .btn:hover {
+        transform: scale(1.1);
+        background: #ff5e78;
+      }
+
+      /* Surprise Pop-up Overlay */
+      #overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.85);
+        z-index: 1000;
+        justify-content: center;
+        align-items: center;
+      }
+      .card {
+        background: white;
+        padding: 30px;
+        border-radius: 25px;
+        text-align: center;
+        max-width: 90%;
+        animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      }
+
+      /* The Anime Girl Jump Animation */
+      .anime-girl {
+        width: 250px;
+        height: auto;
+        border-radius: 15px;
+        animation: jump 0.6s infinite alternate ease-in-out;
+      }
+
+      .surprise-text {
+        font-family: "Dancing Script", cursive;
+        font-size: 2.5rem;
+        color: #ff758c;
+        margin: 20px 0;
+      }
+      .close-btn {
+        background: #eee;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 10px;
+        cursor: pointer;
+        font-weight: bold;
+      }
+
+      @keyframes popIn {
+        from {
+          transform: scale(0.5);
+          opacity: 0;
+        }
+        to {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+      @keyframes jump {
+        from {
+          transform: translateY(0);
+        }
+        to {
+          transform: translateY(-40px);
+        }
+      }
+      .stats-section {
+        padding: 80px 20px;
+        background: #1a1a2e; /* Dark anime-menu style background */
+        color: white;
+        text-align: center;
+        position: relative;
+      }
+
+      .profile-layout {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 40px;
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+
+      /* Left Side: Character Card */
+      .char-card {
+        background: linear-gradient(135deg, #ff758c 0%, #ff7eb3 100%);
+        padding: 10px;
+        border-radius: 15px;
+        box-shadow: 0 0 20px rgba(255, 117, 140, 0.5);
+        width: 280px;
+        position: relative;
+      }
+
+      .char-card img {
+        width: 100%;
+        border-radius: 10px;
+        display: block;
+      }
+
+      .level-badge {
+        position: absolute;
+        top: -15px;
+        right: -15px;
+        background: gold;
+        color: #333;
+        padding: 10px 15px;
+        border-radius: 50%;
+        font-weight: bold;
+        border: 3px solid white;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      }
+
+      /* Right Side: Stat Bars */
+      .stat-bars-container {
+        flex: 1;
+        min-width: 300px;
+        text-align: left;
+      }
+
+      .stat-row {
+        margin-bottom: 25px;
+      }
+
+      .stat-label {
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        display: block;
+        margin-bottom: 5px;
+        font-size: 0.9rem;
+      }
+
+      .bar-bg {
+        background: rgba(255, 255, 255, 0.1);
+        height: 12px;
+        border-radius: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+
+      .bar-fill {
+        height: 100%;
+        border-radius: 20px;
+        background: linear-gradient(90deg, #a6c1ee, #ff758c);
+        box-shadow: 0 0 10px #ff758c;
+        transition: width 2s ease-out;
+      }
+
+      /* Abilities Section */
+      .abilities {
+        margin-top: 30px;
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+
+      .ability-tag {
+        background: rgba(255, 117, 140, 0.2);
+        border: 1px solid #ff758c;
+        padding: 5px 15px;
+        border-radius: 5px;
+        font-size: 0.8rem;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="hero">
+      <h1>Happy Birthday, Nisika!</h1>
+      <p class="subtext">The most amazing main character in the world! ✨</p>
+      <button class="btn" onclick="openSurprise()">
+        Click for a Surprise! ✨
+      </button>
+    </section>
+
+    <div id="overlay">
+      <div class="card">
+        <img
+          class="anime-girl"
+          src="https://media1.tenor.com/m/C_m_fXWc_pIAAAAC/chibi-dance.gif"
+          alt="Happy Anime Girl"
+        />
+        <div class="surprise-text">Go Nisika! It's your birthday! 🎂</div>
+        <p>You deserve all the happiness today! 🎉❤️</p>
+        <button class="close-btn" onclick="closeSurprise()">Close x</button>
+      </div>
+    </div>
+
+    <section class="stats-section">
+      <h2
+        style="
+          font-family: 'Dancing Script', cursive;
+          font-size: 3rem;
+          margin-bottom: 40px;
+        "
+      >
+        Character Selection: NISIKA
+      </h2>
+
+      <div class="profile-layout">
+        <div class="char-card">
+          <span class="level-badge">LVL 21</span>
+          <img src="https://via.placeholder.com/280x350" alt="Nisika Profile" />
+          <h3 style="margin-top: 15px">NISIKA</h3>
+          <p style="font-size: 0.8rem; opacity: 0.8">Class: Legendary Bestie</p>
+        </div>
+
+        <div class="stat-bars-container">
+          <div class="stat-row">
+            <span class="stat-label">Kindness (SSS Range)</span>
+            <div class="bar-bg">
+              <div class="bar-fill" style="width: 100%"></div>
+            </div>
+          </div>
+          <div class="stat-row">
+            <span class="stat-label">Anime Knowledge</span>
+            <div class="bar-bg">
+              <div class="bar-fill" style="width: 92%"></div>
+            </div>
+          </div>
+          <div class="stat-row">
+            <span class="stat-label">Main Character Energy</span>
+            <div class="bar-bg">
+              <div class="bar-fill" style="width: 100%"></div>
+            </div>
+          </div>
+          <div class="stat-row">
+            <span class="stat-label">Procrastination Level</span>
+            <div class="bar-bg">
+              <div class="bar-fill" style="width: 15%"></div>
+            </div>
+          </div>
+
+          <h4 style="margin-top: 20px">SPECIAL ABILITIES</h4>
+          <div class="abilities">
+            <span class="ability-tag">✨ Sunshine Smile</span>
+            <span class="ability-tag">🍜 Ramen Expert</span>
+            <span class="ability-tag">🛡️ Loyal Protector</span>
+            <span class="ability-tag">🎮 Pro Gamer</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+
+    <script>
+      function openSurprise() {
+        document.getElementById("overlay").style.display = "flex";
+
+        // Birthday Blast Confetti
+        var end = Date.now() + 3 * 1000;
+        var colors = ["#ff758c", "#a6c1ee", "#ffffff", "#ffdeb4"];
+
+        (function frame() {
+          confetti({
+            particleCount: 4,
+            angle: 60,
+            spread: 55,
+            origin: { x: 0 },
+            colors: colors,
+          });
+          confetti({
+            particleCount: 4,
+            angle: 120,
+            spread: 55,
+            origin: { x: 1 },
+            colors: colors,
+          });
+
+          if (Date.now() < end) {
+            requestAnimationFrame(frame);
+          }
+        })();
+      }
+
+      function closeSurprise() {
+        document.getElementById("overlay").style.display = "none";
+      }
+    </script>
+  </body>
+</html>
